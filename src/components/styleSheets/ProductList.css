@@ -1,7 +1,18 @@
-.product-list-parent{
+.product-list{
     min-height: 80vh;
-
+    width: 100%;
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
     justify-content: center;
+}
+
+.product-list-parent{
+    display:flex;
+}
+
+.filter-box{
+    border:1px solid black;
+    text-align: center;
+    height:20rem;
+    width: 30%;
 }

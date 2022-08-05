@@ -2,7 +2,10 @@ import './styleSheets/ProductList.css'
 
 const ProductList = (props) => {
     return (
-        <main className='product-list-parent'>
+        <div className='product-list-parent'>
+            <div className='filter-box'>filter Box</div>
+            <main className='product-list'>
+            
             {props.storeItems.map((item) => {
                 console.log(item) 
                 return (
@@ -11,7 +14,8 @@ const ProductList = (props) => {
                     </div>
                 )
             })}
-        </main>
+            </main>
+        </div>
     )
 }
 
