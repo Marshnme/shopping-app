@@ -2,9 +2,9 @@
 
 const ProductList = () => {
     return (
-        <div>
+        <main>
             <h1>ProductList</h1>
-        </div>
+        </main>
     )
 }
 

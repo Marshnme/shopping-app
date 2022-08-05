@@ -3,9 +3,9 @@
 
 const NavBar = () => {
     return (
-        <div>
+        <header>
             <h1>Navbar</h1>
-        </div>
+        </header>
     )
 }
 

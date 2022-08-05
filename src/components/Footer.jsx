@@ -3,9 +3,9 @@
 
 const Footer = () => {
     return (
-        <div>
-            <h1>Footer</h1>
-            </div>
+        <footer>
+            <h1>Created by Joshua Holtsclaw for The Odin Project</h1>
+        </footer>
     )
 }
 
