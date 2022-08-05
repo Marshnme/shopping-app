@@ -1,11 +1,10 @@
+import './styleSheets/ShoppingCart.css'
 
 const ShoppingCart = () => {
     return (
-        <>
-            <div>
-                <h1>ShoppingCart</h1>
-            </div>
-        </>
+        <main className='shopping-cart-parent'>
+            <h1>ShoppingCart</h1>
+        </main>
     )
 }
 
