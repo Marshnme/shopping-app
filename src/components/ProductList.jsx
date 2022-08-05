@@ -1,9 +1,16 @@
 import './styleSheets/ProductList.css'
 
-const ProductList = () => {
+const ProductList = (props) => {
     return (
         <main className='product-list-parent'>
-            <h1>ProductList</h1>
+            {props.storeItems.map((item) => {
+                console.log(item) 
+                return (
+                    <div key={item.id} className='product'>
+                        <p>{item.title}</p>
+                    </div>
+                )
+            })}
         </main>
     )
 }

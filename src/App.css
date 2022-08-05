@@ -5,6 +5,25 @@
 }
 
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: .7fr 1fr 1fr; 
+  /* grid-template-rows: 1fr 1fr 1fr;  */
+  grid-template-areas: 
+    'nav nav nav'
+    '... main main'
+    'footer footer footer'
+}
+
+.nav-bar-comp{
+  grid-area: nav;
+
+}
+
+.main-comp{
+  grid-area: main;
+}
+
+.footer-comp{
+  grid-area: footer;
 }
 

@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
-	const [storeItems, SetStoreItems] = useState();
+	const [storeItems, SetStoreItems] = useState([]);
 
 	function getStoreItems() {
 		fetch('https://fakestoreapi.com/products')
@@ -24,15 +24,25 @@ function App() {
 
 	return (
 		<div className="App">
-			<NavBar></NavBar>
-			<Routes>
-				<Route
-					path="/"
-					element={<ProductList storeItems={storeItems} />}
-				></Route>
-				<Route path="/shoppingCart" element={<ShoppingCart />}></Route>
-			</Routes>
-			<Footer></Footer>
+			<div className="nav-bar-comp">
+				<NavBar></NavBar>
+			</div>
+			<div className="main-comp">
+				<Routes>
+					<Route
+						path="/"
+						element={<ProductList storeItems={storeItems} />}
+					></Route>
+					<Route
+						path="/shoppingCart"
+						element={<ShoppingCart />}
+					></Route>
+				</Routes>
+			</div>
+
+			<div className="footer-comp">
+				<Footer></Footer>
+			</div>
 		</div>
 	);
 }
