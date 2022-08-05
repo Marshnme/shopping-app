@@ -1,0 +1,21 @@
+.nav-parent{
+    min-height: 10vh;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0 3rem;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.nav-links .products-link{
+    text-decoration: none;
+    color:black;
+}
+.cart-icon{
+    cursor: pointer;
+}

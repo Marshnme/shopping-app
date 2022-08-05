@@ -1,7 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import NavBar from './components/NavBar';
 import ProductList from './components/ProductList';
 import ShoppingCart from './components/ShoppingCart';
+import Footer from './components/Footer';
 import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -22,10 +24,15 @@ function App() {
 
 	return (
 		<div className="App">
+			<NavBar></NavBar>
 			<Routes>
-				<Route path="/" element={<ProductList />}></Route>
+				<Route
+					path="/"
+					element={<ProductList storeItems={storeItems} />}
+				></Route>
 				<Route path="/shoppingCart" element={<ShoppingCart />}></Route>
 			</Routes>
+			<Footer></Footer>
 		</div>
 	);
 }
