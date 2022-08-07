@@ -10,7 +10,8 @@ const ProductList = (props) => {
                 console.log(item) 
                 return (
                     <div key={item.id} className='product'>
-                        <p>{item.title}</p>
+                        <img className='product-img' src={item.image} alt='product img'></img>
+                        <p><span>${item.price} - </span>{item.title}</p>
                     </div>
                 )
             })}
