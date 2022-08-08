@@ -41,7 +41,8 @@ const ProductList = (props) => {
                         <img className='product-img' src={item.image} alt='product img'></img>
                         <p className='product-title'>{item.title}</p>
                         <p className='product-price'>${item.price}</p>
-                        <p className='product-description'>{item.description}</p>
+                        {/* <p className='product-description'>{item.description}</p> */}
+                        <button>Add to cart</button>
                     </div>
                 )
             })}
