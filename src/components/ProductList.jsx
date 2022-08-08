@@ -1,7 +1,7 @@
 import './styleSheets/ProductList.css'
 
 const ProductList = (props) => {
-    console.log(props.filteredItems)
+    // console.log(props.filteredItems)
     return (
         <div className='product-list-parent'>
             <div className='filter-box'>
@@ -35,14 +35,14 @@ const ProductList = (props) => {
             <main className='product-list'>
             
             {props.filteredItems.map((item) => {
-                console.log(item) 
+                // console.log(item) 
                 return (
                     <div key={item.id} className='product'>
                         <img className='product-img' src={item.image} alt='product img'></img>
                         <p className='product-title'>{item.title}</p>
                         <p className='product-price'>${item.price}</p>
                         {/* <p className='product-description'>{item.description}</p> */}
-                        <button>Add to cart</button>
+                        <button onClick={() => { props.addToCart(item) }}>Add to cart</button>
                     </div>
                 )
             })}

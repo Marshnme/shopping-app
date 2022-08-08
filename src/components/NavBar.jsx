@@ -2,7 +2,7 @@ import './styleSheets/NavBar.css'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {Link,useNavigate} from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = (props) => {
     let navigate = useNavigate()
     function goToCart(){
         navigate('/shoppingCart')
@@ -13,6 +13,7 @@ const NavBar = () => {
             <div className='nav-links'>
                 <Link className='products-link' to='/'>Products</Link>
                 <ShoppingCartIcon className='cart-icon' onClick={goToCart}></ShoppingCartIcon>
+                <span>{props.cart.quantity}</span>
             </div>
             
         </header>

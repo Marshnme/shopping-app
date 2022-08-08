@@ -9,6 +9,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 function App() {
 	const [storeItems, setStoreItems] = useState([]);
 	const [filteredItems, setFilteredItems] = useState([]);
+	const [cart, setCart] = useState({ quantity: 0, items: [] });
 	function getStoreItems() {
 		fetch('https://fakestoreapi.com/products')
 			.then((res) => res.json())
@@ -22,9 +23,15 @@ function App() {
 		getStoreItems();
 	}, []);
 
-	// useEffect(() => {
+	function addToCart(item) {
+		setCart((prevState) => ({
+			...prevState,
+			quantity: cart.quantity + 1,
+			items: [...cart.items, item],
+		}));
 
-	// }, [])
+		console.log(cart);
+	}
 
 	function filterItems(currentFilter) {
 		let newItems = [...storeItems];
@@ -42,7 +49,7 @@ function App() {
 	return (
 		<div className="App">
 			<div className="nav-bar-comp">
-				<NavBar></NavBar>
+				<NavBar cart={cart}></NavBar>
 			</div>
 			<div className="main-comp">
 				<Routes>
@@ -52,6 +59,7 @@ function App() {
 							<ProductList
 								filteredItems={filteredItems}
 								filterItems={filterItems}
+								addToCart={addToCart}
 							/>
 						}
 					></Route>
