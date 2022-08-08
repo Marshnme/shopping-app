@@ -7,14 +7,14 @@ import Footer from './components/Footer';
 import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
-	const [storeItems, SetStoreItems] = useState([]);
-
+	const [storeItems, setStoreItems] = useState([]);
+	const [filteredItems, setFilteredItems] = useState([]);
 	function getStoreItems() {
 		fetch('https://fakestoreapi.com/products')
 			.then((res) => res.json())
 			.then((json) => {
-				SetStoreItems(json);
-				console.log(json);
+				setStoreItems(json);
+				setFilteredItems(json);
 			});
 	}
 
@@ -27,13 +27,16 @@ function App() {
 	// }, [])
 
 	function filterItems(currentFilter) {
-		let newItems = storeItems.filter((item) => {
-			if (item.catetgory === currentFilter) {
+		let newItems = [...storeItems];
+		newItems = storeItems.filter((item) => {
+			if (currentFilter === 'all') {
+				return item;
+			}
+			if (item.category === currentFilter) {
 				return item;
 			}
 		});
-
-		SetStoreItems(newItems);
+		setFilteredItems(newItems);
 	}
 
 	return (
@@ -47,7 +50,7 @@ function App() {
 						path="/"
 						element={
 							<ProductList
-								storeItems={storeItems}
+								filteredItems={filteredItems}
 								filterItems={filterItems}
 							/>
 						}
