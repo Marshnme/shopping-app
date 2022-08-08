@@ -22,6 +22,20 @@ function App() {
 		getStoreItems();
 	}, []);
 
+	// useEffect(() => {
+
+	// }, [])
+
+	function filterItems(currentFilter) {
+		let newItems = storeItems.filter((item) => {
+			if (item.catetgory === currentFilter) {
+				return item;
+			}
+		});
+
+		SetStoreItems(newItems);
+	}
+
 	return (
 		<div className="App">
 			<div className="nav-bar-comp">
@@ -31,7 +45,12 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={<ProductList storeItems={storeItems} />}
+						element={
+							<ProductList
+								storeItems={storeItems}
+								filterItems={filterItems}
+							/>
+						}
 					></Route>
 					<Route
 						path="/shoppingCart"

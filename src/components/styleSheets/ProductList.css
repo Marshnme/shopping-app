@@ -9,19 +9,35 @@
     min-height: 80vh;
     width: 100%;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     justify-content: center;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .product-list > * {
-    /* border:1px solid black; */
+    border:1px solid black;
     padding:1.5rem;
 }
 
 .product-img{
-    width:100%;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
    
+}
+
+.product-price{
+    margin-top:1rem;
+}
+
+.product-title{
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.product-description{
+    margin-top: 1rem;
+    font-size: 1rem;
 }
 
 
@@ -31,4 +47,6 @@
     text-align: center;
     height:20rem;
     width: 30%;
+    display: flex;
+    flex-flow: column nowrap;
 }
