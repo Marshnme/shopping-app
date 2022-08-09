@@ -65,7 +65,7 @@ function App() {
 					></Route>
 					<Route
 						path="/shoppingCart"
-						element={<ShoppingCart />}
+						element={<ShoppingCart cart={cart} />}
 					></Route>
 				</Routes>
 			</div>
