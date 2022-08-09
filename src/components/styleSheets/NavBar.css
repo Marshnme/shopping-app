@@ -16,6 +16,14 @@
     text-decoration: none;
     color:black;
 }
+
+.cart-icon-group{
+    display:flex;
+    flex-flow: row nowrap;
+}
+.cart-icon-group span{
+    font-size: 1.5rem;
+}
 .cart-icon{
     cursor: pointer;
 }

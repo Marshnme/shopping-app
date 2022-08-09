@@ -12,8 +12,10 @@ const NavBar = (props) => {
             <h2>BuyIt</h2>
             <div className='nav-links'>
                 <Link className='products-link' to='/'>Products</Link>
-                <ShoppingCartIcon className='cart-icon' onClick={goToCart}></ShoppingCartIcon>
-                <span>{props.cart.quantity}</span>
+                <div className='cart-icon-group'>
+                    <ShoppingCartIcon className='cart-icon' onClick={goToCart}></ShoppingCartIcon>
+                    <span>{props.cart.quantity}</span>
+                </div>
             </div>
             
         </header>
