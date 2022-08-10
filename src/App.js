@@ -9,7 +9,10 @@ import { Routes, Route, Link } from 'react-router-dom';
 function App() {
 	const [storeItems, setStoreItems] = useState([]);
 	const [filteredItems, setFilteredItems] = useState([]);
-	const [cart, setCart] = useState({ quantity: 0, items: [] });
+	const [cart, setCart] = useState({
+		quantity: 0,
+		items: [],
+	});
 	function getStoreItems() {
 		fetch('https://fakestoreapi.com/products')
 			.then((res) => res.json())
@@ -23,14 +26,36 @@ function App() {
 		getStoreItems();
 	}, []);
 
-	function addToCart(item) {
-		setCart((prevState) => ({
-			...prevState,
-			quantity: cart.quantity + 1,
-			items: [...cart.items, item],
-		}));
+	function addToCart(newItem) {
+		let quantity = 1;
+		console.log(cart.items);
+		if (cart.items && cart.items.length !== 0) {
+			let newState = cart.items.map((item) => {
+				if (item.newItem.id === newItem.id) {
+					console.log('we in here');
+					item.quantity = item.quantity + 1;
+					newItem.quantity = newItem.quantity + 1;
+					return item;
+				} else {
+					return item;
+				}
+			});
+			console.log('NEWSTATE', newState);
+			setCart((prevState) => ({
+				...prevState,
+				quantity: cart.quantity + 1,
+				items: newState,
+			}));
+			// items: [...cart.items, { newItem, quantity: quantity }];
+		} else {
+			setCart((prevState) => ({
+				...prevState,
+				quantity: cart.quantity + 1,
+				items: [...cart.items, { newItem, quantity: quantity }],
+			}));
+		}
 
-		console.log(cart);
+		// console.log(cart);
 	}
 
 	function filterItems(currentFilter) {
