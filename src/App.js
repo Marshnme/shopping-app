@@ -29,51 +29,23 @@ function App() {
 	function addToCart(newItem) {
 		const quantity = 1;
 		console.log(cart.items);
-		// when im adding a second item it only looks through the single item and doesnt add the second
 
-		cart.items.map((item) => {
-			console.log('helllllo.');
-			if (item.item.id === newItem.id) {
-				console.log('we in here', item);
-				item.quantity = item.quantity + 1;
+		for (let i = 0; i < cart.items.length; i++) {
+			console.log(cart.items[i]);
+			if (cart.items[i].item.id === newItem.id) {
+				// cart.quantity += 1;
 				setCart((prevState) => ({
 					...prevState,
 					quantity: cart.quantity + 1,
-					items: [
-						...cart.items,
-						{ item: item, quantity: item.quantity },
-					],
 				}));
-				return item;
-			} else {
-				console.log('no matching', newItem);
-				setCart((prevState) => ({
-					...prevState,
-					quantity: cart.quantity + 1,
-					items: [
-						...cart.items,
-						{ item: newItem, quantity: newItem.quantity },
-					],
-				}));
-				// // item.quantity = item.quantity + 1;
-				// newItem.quantity = newItem.quantity + 1;
-				// return newItem;
+				return (cart.items[i].quantity += 1);
 			}
-		});
-		// 	console.log('NEWSTATE', newState);
-		// 	setCart((prevState) => ({
-		// 		...prevState,
-		// 		quantity: cart.quantity + 1,
-		// 		items: [{ item: [...newState] }],
-		// 	}));
-		// } else {
-
-		// console.log(newState);
-		// setCart((prevState) => ({
-		// 	...prevState,
-		// 	quantity: cart.quantity + 1,
-		// 	items: [...cart.items, { item: newItem, quantity: quantity }],
-		// }));
+		}
+		setCart((prevState) => ({
+			...prevState,
+			quantity: cart.quantity + 1,
+			items: [...cart.items, { item: newItem, quantity: quantity }],
+		}));
 	}
 
 	function filterItems(currentFilter) {
