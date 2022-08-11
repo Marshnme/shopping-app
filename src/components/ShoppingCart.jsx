@@ -8,8 +8,8 @@ const ShoppingCart = (props) => {
             {props.cart.items.map((item) => {
                 console.log(item)
                 return (
-                    <div key={item.newItem.id}>
-                        <p><span>${item.newItem.price} - </span>{item.newItem.title}</p>
+                    <div key={item.item.id}>
+                        <p><span>${item.item.price} - </span>{item.item.title}</p>
                         <p>{item.quantity}</p>
                     </div>
                     

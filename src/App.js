@@ -27,35 +27,53 @@ function App() {
 	}, []);
 
 	function addToCart(newItem) {
-		let quantity = 1;
+		const quantity = 1;
 		console.log(cart.items);
-		if (cart.items && cart.items.length !== 0) {
-			let newState = cart.items.map((item) => {
-				if (item.newItem.id === newItem.id) {
-					console.log('we in here');
-					item.quantity = item.quantity + 1;
-					newItem.quantity = newItem.quantity + 1;
-					return item;
-				} else {
-					return item;
-				}
-			});
-			console.log('NEWSTATE', newState);
-			setCart((prevState) => ({
-				...prevState,
-				quantity: cart.quantity + 1,
-				items: newState,
-			}));
-			// items: [...cart.items, { newItem, quantity: quantity }];
-		} else {
-			setCart((prevState) => ({
-				...prevState,
-				quantity: cart.quantity + 1,
-				items: [...cart.items, { newItem, quantity: quantity }],
-			}));
-		}
+		// when im adding a second item it only looks through the single item and doesnt add the second
 
-		// console.log(cart);
+		cart.items.map((item) => {
+			console.log('helllllo.');
+			if (item.item.id === newItem.id) {
+				console.log('we in here', item);
+				item.quantity = item.quantity + 1;
+				setCart((prevState) => ({
+					...prevState,
+					quantity: cart.quantity + 1,
+					items: [
+						...cart.items,
+						{ item: item, quantity: item.quantity },
+					],
+				}));
+				return item;
+			} else {
+				console.log('no matching', newItem);
+				setCart((prevState) => ({
+					...prevState,
+					quantity: cart.quantity + 1,
+					items: [
+						...cart.items,
+						{ item: newItem, quantity: newItem.quantity },
+					],
+				}));
+				// // item.quantity = item.quantity + 1;
+				// newItem.quantity = newItem.quantity + 1;
+				// return newItem;
+			}
+		});
+		// 	console.log('NEWSTATE', newState);
+		// 	setCart((prevState) => ({
+		// 		...prevState,
+		// 		quantity: cart.quantity + 1,
+		// 		items: [{ item: [...newState] }],
+		// 	}));
+		// } else {
+
+		// console.log(newState);
+		// setCart((prevState) => ({
+		// 	...prevState,
+		// 	quantity: cart.quantity + 1,
+		// 	items: [...cart.items, { item: newItem, quantity: quantity }],
+		// }));
 	}
 
 	function filterItems(currentFilter) {
