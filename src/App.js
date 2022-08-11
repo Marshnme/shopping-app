@@ -29,11 +29,10 @@ function App() {
 	function addToCart(newItem) {
 		const quantity = 1;
 		console.log(cart.items);
-
+		// Try using map again and correctly calling setCart for current cartitem instead of modifying useState directly
 		for (let i = 0; i < cart.items.length; i++) {
 			console.log(cart.items[i]);
 			if (cart.items[i].item.id === newItem.id) {
-				// cart.quantity += 1;
 				setCart((prevState) => ({
 					...prevState,
 					quantity: cart.quantity + 1,
