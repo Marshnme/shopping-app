@@ -10,7 +10,8 @@ const ShoppingCart = (props) => {
                 return (
                     <div key={item.item.id}>
                         <p><span>${item.item.price} - </span>{item.item.title}</p>
-                        <p>{item.quantity}</p>
+                        <p><span onClick={() => { props.minusQuantity(item) }}>minus</span>{item.quantity}<span onClick={() => { props.addQuantity(item) }}>add</span></p>
+
                     </div>
                     
                 )

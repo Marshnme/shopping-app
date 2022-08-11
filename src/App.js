@@ -29,7 +29,7 @@ function App() {
 	function addToCart(newItem) {
 		const quantity = 1;
 		console.log(cart.items);
-		// Try using map again and correctly calling setCart for current cartitem instead of modifying useState directly
+		// Try using map or foreach again and correctly calling setCart for current cartitem instead of modifying useState directly
 		for (let i = 0; i < cart.items.length; i++) {
 			console.log(cart.items[i]);
 			if (cart.items[i].item.id === newItem.id) {
@@ -37,6 +37,7 @@ function App() {
 					...prevState,
 					quantity: cart.quantity + 1,
 				}));
+				// bad practice to modify state directly
 				return (cart.items[i].quantity += 1);
 			}
 		}
@@ -60,6 +61,54 @@ function App() {
 		setFilteredItems(newItems);
 	}
 
+	function addQuantity(currentItem) {
+		let newCartQuan = cart.quantity;
+		console.log('currrr', currentItem);
+		let newItems = cart.items.map((item) => {
+			if (item.item.id === currentItem.item.id) {
+				console.log('the saaaame', item);
+				if (item.quantity < item.item.rating.count) {
+					newCartQuan += 1;
+					item.quantity += 1;
+				} else {
+					console.log('MAX STOCK REACHED');
+				}
+				return item;
+			} else {
+				return item;
+			}
+		});
+		setCart((prevState) => ({
+			...prevState,
+			quantity: newCartQuan,
+			items: newItems,
+		}));
+		// setCart(newItems);
+	}
+	function minusQuantity(currentItem) {
+		let newCartQuan = cart.quantity;
+		let newItems = cart.items.map((item) => {
+			if (item.item.id === currentItem.item.id) {
+				console.log('the saaaame', item);
+				if (item.quantity > 1) {
+					newCartQuan -= 1;
+					item.quantity -= 1;
+				} else {
+					return item;
+				}
+
+				return item;
+			} else {
+				return item;
+			}
+		});
+		setCart((prevState) => ({
+			...prevState,
+			quantity: newCartQuan,
+			items: newItems,
+		}));
+	}
+
 	return (
 		<div className="App">
 			<div className="nav-bar-comp">
@@ -79,7 +128,13 @@ function App() {
 					></Route>
 					<Route
 						path="/shoppingCart"
-						element={<ShoppingCart cart={cart} />}
+						element={
+							<ShoppingCart
+								cart={cart}
+								addQuantity={addQuantity}
+								minusQuantity={minusQuantity}
+							/>
+						}
 					></Route>
 				</Routes>
 			</div>
