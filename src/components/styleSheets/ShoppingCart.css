@@ -2,3 +2,19 @@
     min-height: 80vh;
     text-align: center;
 }
+
+.cart-item{
+    margin-top:2rem;
+}
+
+.quantity-parent{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap:.5rem;
+}
+
+.minus-quantity, .add-quantity{
+    cursor: pointer;
+}
