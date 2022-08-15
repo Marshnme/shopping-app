@@ -26,17 +26,34 @@ const ShoppingCart = (props) => {
     }
     return (
         <main className='shopping-cart-parent'>
-            <h1>ShoppingCart</h1>
+            <h1 className='cart-product-h1'>ShoppingCart</h1>
+            <div className='cart-guides'>
+                <p className='cart-product-details'>Product Details</p>
+                <p>QTY</p>
+            </div>
+            
             {console.log(props.cart.items)}
             {props.cart.items.map((item) => {
                 console.log(item)
                 return (
                     <div className='cart-item' key={item.item.id}>
-                        <p><span>${item.item.price} - </span>{item.item.title}</p>
+                        <div className='cart-image-title'>
+                            <img className='cart-item-image' src={item.item.image} alt='product'></img>
+                            <div>
+                                <p className='cart-item-title'>{item.item.title}</p>
+                            <p>${item.item.price }</p>
+                            </div>
+
+                            
+                        </div>
+                       
                         <div className='quantity-parent'>
-                            <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
+                            <div className='quantity-count'>
+                                <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
                             <p>{item.quantity}</p>
                             <p className='add-quantity'onClick={() => { props.addQuantity(item) }}>+</p>
+                            </div>
+                            
                         </div>
                         
 
