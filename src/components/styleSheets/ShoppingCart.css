@@ -29,8 +29,8 @@
 
 .qty-total-details{
     display:flex;
-    justify-content: space-between;
-    width: 24%;
+    justify-content: space-around;
+    min-width: 30%;
 }
 
 .cart-item{
@@ -64,7 +64,8 @@
     flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
-   width: 30%;
+    min-width: 30%;
+    gap:1rem;
 
 }
 
