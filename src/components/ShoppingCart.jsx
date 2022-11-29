@@ -29,14 +29,7 @@ const ShoppingCart = (props) => {
             <h1 className='cart-product-h1'>ShoppingCart</h1>
             <div className='cart-group-sep'>
                 <div className='all-cart-items'>    
-                    <div className='cart-guides'>
-                <p className='cart-product-details'>Product Details</p>
-                <div className='qty-total-details'>
-                    <p>QTY</p>
-                    <p> TOTAL</p>
-                </div>
-               
-                    </div>
+
                 
 
                     {console.log(props.cart.items)}
