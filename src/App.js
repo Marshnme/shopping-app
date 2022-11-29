@@ -13,6 +13,7 @@ function App() {
 		quantity: 0,
 		items: [],
 	});
+
 	function getStoreItems() {
 		fetch('https://fakestoreapi.com/products')
 			.then((res) => res.json())

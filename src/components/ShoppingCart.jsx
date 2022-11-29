@@ -27,51 +27,59 @@ const ShoppingCart = (props) => {
     return (
         <main className='shopping-cart-parent'>
             <h1 className='cart-product-h1'>ShoppingCart</h1>
-            <div className='cart-guides'>
+            <div className='cart-group-sep'>
+                <div className='all-cart-items'>    
+                    <div className='cart-guides'>
                 <p className='cart-product-details'>Product Details</p>
                 <div className='qty-total-details'>
                     <p>QTY</p>
                     <p> TOTAL</p>
                 </div>
                
-            </div>
-            
-            {console.log(props.cart.items)}
-            {props.cart.items.map((item) => {
-                console.log(item)
-                let totalPerItem = item.quantity * item.item.price;
-                return (
-                    
-                    <div className='cart-item' key={item.item.id}>
-                        <div className='cart-image-title'>
-                            <img className='cart-item-image' src={item.item.image} alt='product'></img>
-                            <div>
-                                <p className='cart-item-title'>{item.item.title}</p>
-                            <p>${item.item.price }</p>
-                            </div>
-
-                            
-                        </div>
-                       
-                        <div className='quantity-parent'>
-                            <div className='quantity-count'>
-                                <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
-                            <p>{item.quantity}</p>
-                            <p className='add-quantity'onClick={() => { props.addQuantity(item) }}>+</p>
-                            </div>
-                            <div>
-                            <p>${totalPerItem.toFixed(2) }</p>
-                        </div>
-                        </div>
-                        
-                        
-
                     </div>
-                    
-                )
-            })}
+                
 
-            <p>${total}</p>
+                    {console.log(props.cart.items)}
+                    {props.cart.items.map((item) => {
+                    console.log(item)
+                    let totalPerItem = item.quantity * item.item.price;
+                    return (
+                        
+                        <div className='cart-item' key={item.item.id}>
+                            <div className='cart-image-title'>
+                                <img className='cart-item-image' src={item.item.image} alt='product'></img>
+                                <div>
+                                    <p className='cart-item-title'>{item.item.title}</p>
+                                <p>${item.item.price }</p>
+                                </div>
+
+                                
+                            </div>
+                        
+                            <div className='quantity-parent'>
+                                <div className='quantity-count'>
+                                    <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
+                                <p>{item.quantity}</p>
+                                <p className='add-quantity'onClick={() => { props.addQuantity(item) }}>+</p>
+                                </div>
+                                <div>
+                                <p>${totalPerItem.toFixed(2) }</p>
+                            </div>
+                            </div>
+                            
+                            
+
+                        </div>
+                        
+                    )
+                    })}
+                </div>
+            
+            
+                <div className='shopping-cart-total'>
+                    <p >${total}</p>
+                </div>
+            </div>
         </main>
     )
 }
