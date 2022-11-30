@@ -40,7 +40,7 @@ const ProductList = (props) => {
                     <div key={item.id} className='product'>
                         <img className='product-img' src={item.image} alt='product img'></img>
                         <p className='product-title'>{item.title}</p>
-                        <p className='product-price'>${item.price}</p>
+                        <p className='product-price'>${item.price.toFixed(2)}</p>
                         {/* <p className='product-description'>{item.description}</p> */}
                         <button onClick={() => { props.addToCart(item) }}>Add to cart</button>
                     </div>

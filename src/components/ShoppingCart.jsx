@@ -43,7 +43,7 @@ const ShoppingCart = (props) => {
                                 <img className='cart-item-image' src={item.item.image} alt='product'></img>
                                 <div>
                                     <p className='cart-item-title'>{item.item.title}</p>
-                                <p>${item.item.price }</p>
+                                <p>${item.item.price.toFixed(2) }</p>
                                 </div>
 
                                 
