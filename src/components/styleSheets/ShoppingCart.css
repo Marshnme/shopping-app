@@ -92,3 +92,16 @@
     display: flex;
     justify-content: center;
 } */
+
+/* no cart items */
+
+.no-cart-items-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.no-cart-items-main > h3{
+    font-size: 1.5rem;
+}

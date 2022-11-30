@@ -24,57 +24,71 @@ const ShoppingCart = (props) => {
 
         setTotal(newTotal.toFixed(2))
     }
-    return (
-        <main className='shopping-cart-parent'>
-            <h1 className='cart-product-h1'>ShoppingCart</h1>
-            <div className='cart-group-sep'>
-                <div className='all-cart-items'>    
+
+    console.log("cart before render",props.cart)
+    
+    if (props.cart.items.length === 0) {
+        return (
+            <div className='no-cart-items-main'>
+                <h3>You got no items fool</h3>
+            </div>
+        )
+    } else {
+        
+        
+        return (
+        
+            <main className='shopping-cart-parent'>
+                <h1 className='cart-product-h1'>ShoppingCart</h1>
+                <div className='cart-group-sep'>
+                    <div className='all-cart-items'>
 
                 
 
-                    {console.log(props.cart.items)}
-                    {props.cart.items.map((item) => {
-                    console.log(item)
-                    let totalPerItem = item.quantity * item.item.price;
-                    return (
+                        {console.log(props.cart.items)}
+                        {props.cart.items.map((item) => {
+                            console.log(item)
+                            let totalPerItem = item.quantity * item.item.price;
+                            return (
                         
-                        <div className='cart-item' key={item.item.id}>
-                            <div className='cart-image-title'>
-                                <img className='cart-item-image' src={item.item.image} alt='product'></img>
-                                <div>
-                                    <p className='cart-item-title'>{item.item.title}</p>
-                                <p>${item.item.price.toFixed(2) }</p>
-                                </div>
+                                <div className='cart-item' key={item.item.id}>
+                                    <div className='cart-image-title'>
+                                        <img className='cart-item-image' src={item.item.image} alt='product'></img>
+                                        <div>
+                                            <p className='cart-item-title'>{item.item.title}</p>
+                                            <p>${item.item.price.toFixed(2)}</p>
+                                        </div>
 
                                 
-                            </div>
+                                    </div>
                         
-                            <div className='quantity-parent'>
-                                <div className='quantity-count'>
-                                    <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
-                                <p>{item.quantity}</p>
-                                <p className='add-quantity'onClick={() => { props.addQuantity(item) }}>+</p>
-                                </div>
-                                <div>
-                                <p>${totalPerItem.toFixed(2) }</p>
-                            </div>
-                            </div>
+                                    <div className='quantity-parent'>
+                                        <div className='quantity-count'>
+                                            <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
+                                            <p>{item.quantity}</p>
+                                            <p className='add-quantity' onClick={() => { props.addQuantity(item) }}>+</p>
+                                        </div>
+                                        <div>
+                                            <p>${totalPerItem.toFixed(2)}</p>
+                                        </div>
+                                    </div>
                             
                             
 
-                        </div>
+                                </div>
                         
-                    )
-                    })}
-                </div>
+                            )
+                        })}
+                    </div>
             
             
-                <div className='shopping-cart-total'>
-                    <p >${total}</p>
+                    <div className='shopping-cart-total'>
+                        <p >${total}</p>
+                    </div>
                 </div>
-            </div>
-        </main>
-    )
+            </main>
+        )
+    }
 }
 
 export default ShoppingCart

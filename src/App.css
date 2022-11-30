@@ -21,6 +21,7 @@
 
 .main-comp{
   grid-area: main;
+  min-height: 80vh;
 }
 
 .footer-comp{
