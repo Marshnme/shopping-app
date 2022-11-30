@@ -54,29 +54,28 @@ const ShoppingCart = (props) => {
                                 <div className='cart-item' key={item.item.id}>
                                     <div className='cart-image-title'>
                                         <img className='cart-item-image' src={item.item.image} alt='product'></img>
+                                        <div className='cart-item-details'>
+
+                                        
                                         <div>
                                             <p className='cart-item-title'>{item.item.title}</p>
-                                            <p>${item.item.price.toFixed(2)}</p>
+                                            {/* <p>${item.item.price.toFixed(2)}</p> */}
                                         </div>
 
-                                
-                                    </div>
-                        
-                                    <div className='quantity-parent'>
-                                        <div className='quantity-count'>
-                                            <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
-                                            <p>{item.quantity}</p>
-                                            <p className='add-quantity' onClick={() => { props.addQuantity(item) }}>+</p>
-                                        </div>
-                                        <div>
-                                            <p>${totalPerItem.toFixed(2)}</p>
+                                        <div className='quantity-parent'>
+                                            <div className='quantity-count'>
+                                                <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
+                                                <p>{item.quantity}</p>
+                                                <p className='add-quantity' onClick={() => { props.addQuantity(item) }}>+</p>
+                                            </div>
+                                            <div>
+                                                <p>${totalPerItem.toFixed(2)}</p>
+                                            </div>
                                         </div>
                                     </div>
-                            
-                            
-
                                 </div>
-                        
+                            </div>
+
                             )
                         })}
                     </div>

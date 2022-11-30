@@ -61,14 +61,13 @@
 }
 
 .cart-item-title{
-    max-width: 80%;
     margin-bottom: 1rem;
 }
 
 .quantity-parent{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     min-width: 30%;
     gap:1rem;
