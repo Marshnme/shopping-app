@@ -14,8 +14,8 @@
 .cart-group-sep{
     display: flex;
     flex-flow: row nowrap;
-        /* justify-content: center; */
-        /* align-items: ; */
+    width: 80%;
+    margin: 0 auto;
 }
 
 .cart-product-h1{
@@ -26,7 +26,7 @@
 
 .all-cart-items{
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
 }
 
 .cart-product-details{
@@ -43,8 +43,8 @@
     margin-top:2rem;
     display:flex;
     align-items: center;
-    margin-left:2rem;
-    width: 60%;
+    
+    width: 48%;
     justify-content: space-between;
 }
 
@@ -53,7 +53,7 @@
     flex-flow: row nowrap;
     gap: 1rem;
     text-align: start;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .cart-item-image{
