@@ -82,7 +82,12 @@ const ShoppingCart = (props) => {
             
             
                     <div className='shopping-cart-total'>
-                        <p >${total}</p>
+                        <div className='cart-total-group'>
+                            <p>Total:</p>
+                            <p >${total}</p>
+                        </div>
+                    
+                        <button>BUY NOW</button>
                     </div>
                 </div>
             </main>

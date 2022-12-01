@@ -14,8 +14,9 @@
 .cart-group-sep{
     display: flex;
     flex-flow: row nowrap;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+    gap: 2rem;
 }
 
 .cart-product-h1{
@@ -88,10 +89,21 @@
     border:1px solid grey;
 }
 
-/* .shopping-cart-total{
+.shopping-cart-total{
     display: flex;
-    justify-content: center;
-} */
+    flex-flow: column nowrap;
+    gap: 1rem;
+    border: 1px solid black;
+    padding: 1rem 3rem;
+    height: 50%;
+    align-self: flex-end;
+}
+
+.cart-total-group{
+    display:flex;
+    gap: .3rem;
+
+}
 
 /* no cart items */
 
