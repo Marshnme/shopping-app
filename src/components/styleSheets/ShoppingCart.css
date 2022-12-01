@@ -17,6 +17,7 @@
     width: 90%;
     margin: 0 auto;
     gap: 2rem;
+    min-height: 70vh;
 }
 
 .cart-product-h1{
@@ -29,6 +30,7 @@
     display: flex;
     flex-flow: row wrap;
     gap:1.5rem;
+    align-self: flex-start;
 }
 
 .cart-product-details{
