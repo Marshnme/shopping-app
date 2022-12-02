@@ -49,6 +49,12 @@ function App() {
 		}));
 	}
 
+	function removeCartItem(id) {
+		let newCart = cart.filter((item) => {
+			console.log('remove item trigger', item);
+		});
+	}
+
 	function filterItems(currentFilter) {
 		let newItems = [...storeItems];
 		newItems = storeItems.filter((item) => {
@@ -134,6 +140,7 @@ function App() {
 								cart={cart}
 								addQuantity={addQuantity}
 								minusQuantity={minusQuantity}
+								removeCartItem={removeCartItem}
 							/>
 						}
 					></Route>

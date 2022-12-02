@@ -25,7 +25,9 @@ const ShoppingCart = (props) => {
         setTotal(newTotal.toFixed(2))
     }
 
-    console.log("cart before render",props.cart)
+    console.log("cart before render", props.cart)
+    
+    
     
     if (props.cart.items.length === 0) {
         return (
@@ -45,7 +47,7 @@ const ShoppingCart = (props) => {
 
                 
 
-                        {console.log(props.cart.items)}
+                        {console.log('info i need',props.cart.items)}
                         {props.cart.items.map((item) => {
                             console.log(item)
                             let totalPerItem = item.quantity * item.item.price;
@@ -72,7 +74,7 @@ const ShoppingCart = (props) => {
                                                 <p>${totalPerItem.toFixed(2)}</p>
                                             </div>
                                         </div>
-                                        <p>Remove</p>
+                                        <p onClick={()=>{props.removeCartItem(item.item.id)}}>Remove</p>
                                     </div>
                                 </div>
                             </div>
