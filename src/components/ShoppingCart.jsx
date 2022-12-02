@@ -67,11 +67,12 @@ const ShoppingCart = (props) => {
                                                 <p className='minus-quantity' onClick={() => { props.minusQuantity(item) }}>-</p>
                                                 <p>{item.quantity}</p>
                                                 <p className='add-quantity' onClick={() => { props.addQuantity(item) }}>+</p>
-                                            </div>
+                                                </div>
                                             <div>
                                                 <p>${totalPerItem.toFixed(2)}</p>
                                             </div>
                                         </div>
+                                        <p>Remove</p>
                                     </div>
                                 </div>
                             </div>
