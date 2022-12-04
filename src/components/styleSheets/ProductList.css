@@ -55,3 +55,7 @@
     flex-flow: column nowrap;
     padding:2rem;
 }
+
+.add-to-cart{
+    cursor: pointer;
+}

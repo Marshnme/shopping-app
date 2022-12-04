@@ -74,7 +74,7 @@ const ShoppingCart = (props) => {
                                                 <p>${totalPerItem.toFixed(2)}</p>
                                             </div>
                                         </div>
-                                        <p onClick={()=>{props.removeCartItem(item)}}>Remove</p>
+                                        <p className='cart-remove-button' onClick={()=>{props.removeCartItem(item)}}>Remove</p>
                                     </div>
                                 </div>
                             </div>

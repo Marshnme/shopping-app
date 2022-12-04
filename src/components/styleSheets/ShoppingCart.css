@@ -107,6 +107,9 @@
 
 }
 
+.cart-remove-button{
+    cursor: pointer;
+}
 /* no cart items */
 
 .no-cart-items-main{

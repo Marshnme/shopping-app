@@ -42,7 +42,7 @@ const ProductList = (props) => {
                         <p className='product-title'>{item.title}</p>
                         <p className='product-price'>${item.price.toFixed(2)}</p>
                         {/* <p className='product-description'>{item.description}</p> */}
-                        <button onClick={() => { props.addToCart(item) }}>Add to cart</button>
+                        <button className='add-to-cart' onClick={() => { props.addToCart(item) }}>Add to cart</button>
                     </div>
                 )
             })}
