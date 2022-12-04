@@ -49,10 +49,22 @@ function App() {
 		}));
 	}
 
-	function removeCartItem(id) {
-		let newCart = cart.filter((item) => {
-			console.log('remove item trigger', item);
+	function removeCartItem(removeItem) {
+		console.log(removeItem);
+
+		let newCart = cart.items.filter((item) => {
+			if (removeItem.item.id !== item.item.id) {
+				console.log('remove item trigger', item);
+				return item;
+			}
 		});
+
+		setCart((prevState) => ({
+			...prevState,
+			quantity: cart.quantity - removeItem.quantity,
+			items: newCart,
+		}));
+		// setCart(newCart);
 	}
 
 	function filterItems(currentFilter) {

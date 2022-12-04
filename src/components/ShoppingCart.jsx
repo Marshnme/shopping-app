@@ -5,7 +5,7 @@ const ShoppingCart = (props) => {
 
     useEffect(() => {
         findTotal()
-    },[props.addQuantity,props.minusQuantity])
+    },[props.addQuantity,props.minusQuantity,props.removeCartItem])
     
     function findTotal() {
         let newTotal = 0;
@@ -74,7 +74,7 @@ const ShoppingCart = (props) => {
                                                 <p>${totalPerItem.toFixed(2)}</p>
                                             </div>
                                         </div>
-                                        <p onClick={()=>{props.removeCartItem(item.item.id)}}>Remove</p>
+                                        <p onClick={()=>{props.removeCartItem(item)}}>Remove</p>
                                     </div>
                                 </div>
                             </div>
